@@ -64,11 +64,16 @@ The app uses the BLoC pattern for state management. Each feature has its own BLo
 PostBloc: Manages the state of posts and comments data.
 
 ## Screenshots
-![0-02-03-5d1965b11f2f1b0cac6d2b5caad119ec3a19b1ef78c531b53a702cf8339a7d39_4f56832b228aefda](https://github.com/user-attachments/assets/7c8a3c5b-dccb-![0-02-03-002ca6c48b9abd59e316f4b41a77785d77da4351e9f018d5aba0d2c06a00dd5b_6b113beced6b8794](https://github.com/user-attachments/assets/631f10dc-b9db-4a98-86c6-451bc0cfb702)
-4![0-02-03-4dc2801b4d3babf86cd91d51a8bc4ca7028b82f6f3288ef55129ffca965d6e63_1a192d5b9d2abeb4](https://github.com/user-attachments/assets/0dc4a2c5-e41b-4476-bb24-0c394c771e60)
-eac-8dfc-1f854412b88e)
+when posts are not available 
+![0-02-03-feef9889c659afc3c6e076a7fab71d1b5d5fa74ce7454d7121afc508451a093e_1609736ee0600e7](https://github.com/user-attachments/assets/10e581fd-9195-4b51-8bbb-e4b60bd04344)
 
+comment adding page
+![0-02-03-5d1965b11f2f1b0cac6d2b5caad119ec3a19b1ef78c531b53a702cf8339a7d39_4f56832b228aefda](https://github.com/user-attachments/assets/230e76d2-fffa-49e0-bb3f-b54996e1d00c)
+ comment loading Page
+![0-02-03-4dc2801b4d3babf86cd91d51a8bc4ca7028b82f6f3288ef55129ffca965d6e63_1a192d5b9d2abeb4](https://github.com/user-attachments/assets/5beb0e15-3f84-4283-a445-df769d1196c6)
+post available  
 
+![0-02-03-002ca6c48b9abd59e316f4b41a77785d77da4351e9f018d5aba0d2c06a00dd5b_6b113beced6b8794](https://github.com/user-attachments/assets/b7d77346-6386-4e10-a668-66b6379a8867)
 
 
 
