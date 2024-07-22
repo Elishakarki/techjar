@@ -21,11 +21,11 @@ class PostLoadedSuccess extends MyState {
   List<Object> get props => [posts];
 }
 
-class  commentLoadSucces extends MyState{
+class  CommentLoadSucces extends MyState{
 
   final  List<Comment> comments;
   
-  const commentLoadSucces( this.comments);
+  const CommentLoadSucces( this.comments);
   @override
   List<Object> get props => [comments];
 }

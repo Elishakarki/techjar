@@ -1,42 +1,90 @@
-// blocs/post_bloc.dart
+// import 'package:bloc/bloc.dart';
+// import 'package:techjar/repositories/post_repository.dart';
+// import 'post_event.dart';
+// import 'post_state.dart';
+
+// class PostBloc extends Bloc<PostEvent, MyState> {
+//   final PostRepository postRepository;
+
+//   PostBloc(this.postRepository) : super(PostInitial()) {
+//     on<LoadPosts>(_onLoadPosts);
+//     on<LoadComments>(_onLoadComments);
+//     on<AddComments>(_onAddComments);
+//   }
+
+//   Future<void> _onLoadPosts(LoadPosts event, Emitter<MyState> emit) async {
+//     emit(PostLoadingProgress());
+//     try {
+//       final posts = await postRepository.fetchPosts();
+//       emit(PostLoadedSuccess(posts));
+//     } catch (error) {
+//       emit(PostError(error.toString()));
+//     }
+//   }
+
+//   Future<void> _onLoadComments(LoadComments event, Emitter<MyState> emit) async {
+//     emit(PostLoadingProgress());
+//     try {
+//       final comments = await postRepository.fetchComments(event.postId);
+//       emit(CommentLoadSucces(comments));
+//     } catch (error) {
+//       emit(PostError(error.toString()));
+//     }
+//   }
+
+//   Future<void> _onAddComments(AddComments event, Emitter<MyState> emit) async {
+//     emit(PostLoadingProgress());
+//     try {
+//       await postRepository.addComment(event.postId, event.comment);
+//       final comments = await postRepository.fetchComments(event.postId);
+//       emit(CommentLoadSucces(comments));
+//     } catch (error) {
+//       emit(PostError(error.toString()));
+//     }
+//   }
+// }
+
 import 'package:bloc/bloc.dart';
 import 'package:techjar/repositories/post_repository.dart';
 import 'post_event.dart';
 import 'post_state.dart';
 
-
 class PostBloc extends Bloc<PostEvent, MyState> {
   final PostRepository postRepository;
 
-  PostBloc(this.postRepository) : super(PostInitial());
+  PostBloc(this.postRepository) : super(PostInitial()) {
+    on<LoadPosts>(_onLoadPosts);
+    on<LoadComments>(_onLoadComments);
+    on<AddComments>(_onAddComments);
+  }
 
-  @override
-  Stream<MyState> mapEventToState(PostEvent event) async* {
-    if (event is LoadPosts) {
-      yield PostLoadingProgress();
-      try {
-        final posts = await postRepository.fetchPosts();
-        yield PostLoadedSuccess(posts);
-      } catch (_) {
-        yield PostError(_.toString());
-      }
-    } else if (event is LoadComments) {
-      yield PostLoadingProgress();
-      try {
-        final comments = await postRepository.fetchComments(event.postId);
-        yield commentLoadSucces(comments);
-      } catch (e) {
-        yield PostError(e.toString());
-      }
-    } else if (event is AddComments) {
-      yield PostLoadingProgress();
-      try {
-        await postRepository.addComment(event.postId, event.comment);
-        final comments = await postRepository.fetchComments(event.postId);
-        yield commentLoadSucces(comments);
-      } catch (_) {
-        yield PostError(_.toString());
-      }
+  Future<void> _onLoadPosts(LoadPosts event, Emitter<MyState> emit) async {
+    emit(PostLoadingProgress());
+    try {
+      final posts = await postRepository.fetchPosts();
+      emit(PostLoadedSuccess(posts));
+    } catch (error) {
+      emit(PostError(error.toString()));
+    }
+  }
+
+  Future<void> _onLoadComments(LoadComments event, Emitter<MyState> emit) async {
+    emit(PostLoadingProgress());
+    try {
+      final comments = await postRepository.fetchComments(event.postId);
+      emit(CommentLoadSucces(comments));
+    } catch (error) {
+      emit(PostError(error.toString()));
+    }
+  }
+
+  Future<void> _onAddComments(AddComments event, Emitter<MyState> emit) async {
+    try {
+      await postRepository.addComment(event.postId, event.comment);
+      final comments = await postRepository.fetchComments(event.postId);
+      emit(CommentLoadSucces(comments));
+    } catch (error) {
+      emit(PostError(error.toString()));
     }
   }
 }
