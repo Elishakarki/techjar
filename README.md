@@ -62,5 +62,5 @@ lib/repositories: Contains classes responsible for making API calls.
 ## State Management
 The app uses the BLoC pattern for state management. Each feature has its own BLoC to handle state transitions:
 
-UserBloc: Manages the state of user data (loading, loaded, error).
+
 PostBloc: Manages the state of posts and comments data.
